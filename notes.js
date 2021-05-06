@@ -1,3 +1,4 @@
+//these are the original notes
 const myNotes = [
   {
     id: 1,
@@ -13,23 +14,42 @@ const myNotes = [
     feeling: "OK",
     timeSpent: "2 hours"
   }
-]
-
+];
+// this is a new note outside the array
 const noteAboutToday = {
   id: 3,
     subject: "HTML",
     date: "5/6/2013",
     feeling: "Fine",
     timeSpent: "0.5 hours"
+};
+// this is another note outside the array
+const autoUpdateNote = {
+  id: 3,
+    subject: "FlexBox",
+    date: "5/7/2013",
+    feeling: "Crazy",
+    timeSpent: "5 hours"
+};
+myNotes.push(noteAboutToday); // this added the first new note 
+
+const searchTerm = "Fine"; // this is term I want to find in my notes as a variable(const)
+
+//this for loop will find all of the occurences of the variable. 
+for(const notes of myNotes) {
+  if (notes.feeling === searchTerm) {
+    console.log(`On ${notes.date} you felt ${notes.feeling}.`);// this part of the loop will console a phrase using the properties of the note that had the variable in it.
+   }; 
+};
+// this will add the second new note or any other note to made from now on in the array and place a new number in sequence in the id property. 
+const createNote = (note) => {
+  note.id = myNotes[myNotes.length -1].id + 1; //this takes the last item and adds one to the id for the new note.
+  myNotes.push(note);
 }
 
-for (notes of myNotes) {
-  console.log(`Note ${notes.id} 
-  I learned ${notes.subject}.
-  I spent ${notes.timeSpent} working on it.
-  I felt ${notes.feeling}.
-  ---------------
-  `)
-}
+createNote(autoUpdateNote);
+console.log(myNotes);
 
-console.log(myNotes)
+for(const notes of myNotes) {
+    console.log(`On ${notes.date} you felt ${notes.feeling}.`);// this part of the loop will console a phrase using the properties of the note that had the variable in it.
+  };
