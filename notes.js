@@ -23,11 +23,13 @@ const noteAboutToday = {
     feeling: "Fine",
     timeSpent: "0.5 hours"
 };
+
+const d = new Date();
 // this is another note outside the array
 const autoUpdateNote = {
   id: 3,
     subject: "FlexBox",
-    date: "5/7/2013",
+    date: (`${d.getMonth()+1}/${d.getDate()+1}/${d.getFullYear()} ${d.toLocaleTimeString()}`),
     feeling: "Crazy",
     timeSpent: "5 hours"
 };
@@ -53,3 +55,9 @@ console.log(myNotes);
 for(const notes of myNotes) {
     console.log(`On ${notes.date} you felt ${notes.feeling}.`);// this part of the loop will console a phrase using the properties of the note that had the variable in it.
   };
+
+const createDate =() => {
+  const d = new Date();
+  console.log(`${d.getMonth()+1}/${d.getDate()+1}/${d.getFullYear()} ${d.toLocaleTimeString()}`)
+}
+createDate();
